@@ -1,17 +1,12 @@
 import { NgModule }                from '@angular/core';
 import { CommonModule }            from '@angular/common';
-import { FormsModule }             from '@angular/forms';
-import { YourAwesomeComponent }    from './your-awesome.component';
-// import { YourAwesomePipe }         from './your-awesome.pipe';
-// import { YourAwesomeService }      from './your-awesome.service';
-// import { YourAwesomeDirective }    from './your-awesome.directive';
+import { FlashMessagesComponent }    from './flash-messages.component';
+import { FlashMessagesService }    from './flash-messages.service';
+
 @NgModule({
-    imports:      [ CommonModule, FormsModule ],
-    // declarations: [ YourAwesomeComponent, YourAwesomeDirective, YourAwesomePipe ],
-    declarations: [ YourAwesomeComponent ],
-    // exports:      [ YourAwesomeComponent, YourAwesomeDirective, YourAwesomePipe ],
-    exports:      [ YourAwesomeComponent ],
-    // providers:    [ YourAwesomeService ]
-    providers:    []
+    imports:      [ CommonModule ],
+    declarations: [ FlashMessagesComponent ],
+    exports:      [ FlashMessagesComponent ],
+    providers:    [ FlashMessagesService ]
 })
-export class YourAwesomeModule {}
+export class FlashMessagesModule {}

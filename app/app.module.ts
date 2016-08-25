@@ -6,7 +6,7 @@ import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-import { YourAwesomeModule } from '../module/module';
+import { FlashMessagesModule } from '../module/module';
 
 @NgModule({
     imports: [
@@ -14,7 +14,7 @@ import { YourAwesomeModule } from '../module/module';
         FormsModule,
         HttpModule,
         routing,
-        YourAwesomeModule
+        FlashMessagesModule
     ],
     providers: [
         appRoutingProviders
