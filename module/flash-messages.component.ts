@@ -11,7 +11,8 @@ import { FlashMessageInterface } from './flash-message.interface';
           </div> 
       </div>
       <div *ngIf='!messages.length'>No flash messages</div>
-  `
+  `,
+  styles: ['#flashMessages {opacity: 0;}']
 })
 export class FlashMessagesComponent implements OnInit {
     private _defaults = {
@@ -26,7 +27,6 @@ export class FlashMessagesComponent implements OnInit {
 
     constructor(flashMessagesService: FlashMessagesService) {
         flashMessagesService.activate = this.activate.bind(this);
-        flashMessagesService.push('test', 'alert alert-success');
         this.messages = flashMessagesService.messages;
         console.log(this.messages);
     }

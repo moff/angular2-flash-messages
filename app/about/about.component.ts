@@ -3,14 +3,14 @@ import { Router } from '@angular/router';
 
 @Component({
     template: `
-        <p>Home Component</p>
-        <button (click)='go()'>Go check what it is all about</button>
+        <p>About Component</p>
+        <button (click)='go()'>Go home</button>
     `
 })
-export class HomeComponent {
+export class AboutComponent {
     constructor(private router: Router) {}
     
     go() {
-        this.router.navigate(['/about']);
+        this.router.navigate(['/']);
     }
 }

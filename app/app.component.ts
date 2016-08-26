@@ -5,6 +5,8 @@ import { Component } from "@angular/core";
     template: `
         <h3>App Component</h3>
         <router-outlet></router-outlet>
+        <hr>
+        <flash-messages></flash-messages>
     `
 })
 export class AppComponent {}
