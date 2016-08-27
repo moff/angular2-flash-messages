@@ -6,7 +6,7 @@ import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-import { FlashMessagesModule, FlashMessagesService } from '../module/index';
+import { FlashMessagesModule } from '../module/index';
 
 @NgModule({
     imports: [
