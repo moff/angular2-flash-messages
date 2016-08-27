@@ -16,7 +16,7 @@ This is a simple module that provides component and service for showing flash me
 ```
 // other imports
 // ...
-import { FlashMessagesModule } from '../module/index';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 // ...
 
 @NgModule({
@@ -28,6 +28,30 @@ import { FlashMessagesModule } from '../module/index';
     ]
 })
 
+```
+
+That should be enough if you use Webpack to bundle JavaScript.
+
+Otherwise you'll have to edit `systemjs.config.js` to set correct path, e.g.:
+
+```
+// below you can see an example of map and packages sections in systemjs.config.js
+
+// ...
+// map tells the System loader where to look for things
+var map = {
+    // ...
+    'angular2-flash-messages':    'node_modules/angular2-flash-messages'
+    // ...
+};
+// packages tells the System loader how to load when no filename and/or no extension
+var packages = {
+    // ...
+    'angular2-flash-messages':    { main: 'index.js', defaultExtension: 'js' }
+    // ...
+};
+
+// ...
 ```
 
 ## Usage
