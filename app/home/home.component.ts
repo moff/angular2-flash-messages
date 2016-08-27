@@ -13,7 +13,7 @@ export class HomeComponent {
                 private _flashMessagesService: FlashMessagesService) {}
     
     go() {
-        this._flashMessagesService.push('we were at home');
+        this._flashMessagesService.show('we were at home' + Math.random(), 'alert-warning');
         this.router.navigate(['/about']);
     }
 }
