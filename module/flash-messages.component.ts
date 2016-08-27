@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FlashMessage } from './flash-message';
 import { FlashMessagesService } from './flash-messages.service';
 import { FlashMessageInterface } from './flash-message.interface';
 
@@ -25,18 +26,18 @@ export class FlashMessagesComponent implements OnInit {
 
     private _flashMessagesElement: any;
 
-    constructor(flashMessagesService: FlashMessagesService) {
-        flashMessagesService.activate = this.activate.bind(this);
-        this.messages = flashMessagesService.messages;
-        console.log(this.messages);
-    }
-
-    activate() {
-        this._show();
+    constructor(private _flashMessagesService: FlashMessagesService) {
+        this._flashMessagesService.push = this.push.bind(this);
     }
 
     ngOnInit() {
         this._flashMessagesElement = document.getElementById('flashMessages');
+    }
+    
+    push(text?: string, cssClass?: string): void {
+        let message = new FlashMessage(text, cssClass);
+        this.messages.push(message);
+        this._show();
     }
 
     private _show() {
@@ -47,6 +48,9 @@ export class FlashMessagesComponent implements OnInit {
 
     private _hide() {
         this._flashMessagesElement.style.opacity = 0;
-        window.setTimeout(() => this._flashMessagesElement.style.zIndex = 0, 400);
+        window.setTimeout(() => { 
+            this._flashMessagesElement.style.zIndex = 0;
+            this.messages = [];
+        }, 400);
     }
 }

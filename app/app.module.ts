@@ -6,7 +6,7 @@ import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-import { FlashMessagesModule } from '../module/module';
+import { FlashMessagesModule, FlashMessagesService } from '../module/index';
 
 @NgModule({
     imports: [
@@ -25,4 +25,4 @@ import { FlashMessagesModule } from '../module/module';
     ],
     bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {}
