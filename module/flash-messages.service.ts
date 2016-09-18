@@ -4,5 +4,5 @@ import { FlashMessageInterface } from './flash-message.interface';
 
 @Injectable()
 export class FlashMessagesService {
-    show: (text?: string, cssClass?: string) => void;
+    show: (text?: string, options?: Object) => void;
 }

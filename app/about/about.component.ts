@@ -13,7 +13,7 @@ export class AboutComponent {
                 private _flashMessagesService: FlashMessagesService) {}
     
     go() {
-        this._flashMessagesService.show('we were in about' + Math.random(), 'alert-success');
+        this._flashMessagesService.show('we were in about' + Math.random(), { cssClass: 'alert-danger' });
         this.router.navigate(['/']);
     }
 }

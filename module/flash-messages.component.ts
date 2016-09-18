@@ -32,13 +32,21 @@ export class FlashMessagesComponent implements OnInit {
         this._flashMessagesElement = document.getElementById('flashMessages');
     }
     
-    show(text?: string, cssClass?: string): void {
-        let message = new FlashMessage(text, cssClass);
+    show(text?: string, options = {}): void {
+        
+        let defaults = {
+          timeout: 2500,
+          cssClass: ''
+        };
+        
+        for (var attrname in options) { defaults[attrname] = options[attrname]; }
+        
+        let message = new FlashMessage(text, defaults.cssClass);
         this.messages.push(message);
         
         window.setTimeout(() => {
             this._remove(message);
-        }, 2500);
+        }, defaults.timeout);
     }
 
     private _remove(message: FlashMessageInterface) {

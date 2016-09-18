@@ -94,13 +94,27 @@ export class AboutComponent implements OnInit {
 
 ```
 
-Flash message is visible for 2.5 seconds and then deleted.
+By default flash message is visible for 2.5 seconds and then deleted. You can pass second argument and specify for how long flash message should be visible, e.g.:
+
+```
+// flash message will be visible for 1 second
+this._flashMessagesService.show('We are in about component!', { timeout: 1000 });
+
+```
+
+You can specify CSS class for flash message div-element, e.g.:
+
+```
+// set CSS-class for wrapper div of flash message
+this._flashMessagesService.show('We are in about component!', { cssClass: 'your-css-class' });
+
+```
 
 You can show multiple flash messages, e.g.:
 
 ```
-this._flashMessagesService.show('We are in about component!', 'alert-success');
-this._flashMessagesService.show('But something went wrong!', 'alert-danger');
+this._flashMessagesService.show('Success!', { cssClass: 'alert-success' } );
+this._flashMessagesService.show('Failure!', { cssClass: 'alert-danger' } );
 
 ```
 
