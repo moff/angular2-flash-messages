@@ -87,8 +87,8 @@ export class AboutComponent implements OnInit {
     
     ngOnInit() {
         // 1st parameter is a flash message text
-        // 2nd parameter is a CSS class for flash message div
-        this._flashMessagesService.show('We are in about component!', 'alert-success');
+        // 2nd parameter is optional. You can pass object with options.
+        this._flashMessagesService.show('We are in about component!', { cssClass: 'alert-success', timeout: 1000 });
     }
 }
 
@@ -115,6 +115,39 @@ You can show multiple flash messages, e.g.:
 ```
 this._flashMessagesService.show('Success!', { cssClass: 'alert-success' } );
 this._flashMessagesService.show('Failure!', { cssClass: 'alert-danger' } );
+
+```
+
+Also you can gray out everything except your flash messages, e.g.:
+
+```
+this._flashMessagesService.grayOut(true); // turn on gray out feature
+this._flashMessagesService.grayOut(false); // turn off gray out feature
+
+```
+
+By default gray out is disabled.
+
+Notice! You have to add some CSS to see gray out in action, e.g.:
+```
+#grayOutDiv
+{
+    background-color: #333;
+    opacity: 0.7;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.flash-message 
+{
+    z-index: 10000;
+    position: relative;
+}
 
 ```
 
