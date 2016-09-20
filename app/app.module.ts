@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 
 import { FlashMessagesModule } from '../module/index';
 
@@ -21,7 +22,8 @@ import { FlashMessagesModule } from '../module/index';
     ],
     declarations: [
         AppComponent,
-        HomeComponent
+        HomeComponent,
+        AboutComponent
     ],
     bootstrap: [ AppComponent ]
 })
