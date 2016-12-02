@@ -24,16 +24,12 @@ export class FlashMessagesComponent implements OnInit {
     messages: FlashMessageInterface[] = [];
     _grayOut: boolean = false;
 
-    private _flashMessagesElement: any;
-
     constructor(private _flashMessagesService: FlashMessagesService) {
         this._flashMessagesService.show = this.show.bind(this);
         this._flashMessagesService.grayOut = this.grayOut.bind(this);
     }
 
-    ngOnInit() {
-        this._flashMessagesElement = document.getElementById('flashMessages');
-    }
+    ngOnInit() {}
     
     show(text?: string, options = {}): void {
         
