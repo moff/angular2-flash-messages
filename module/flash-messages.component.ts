@@ -55,8 +55,6 @@ export class FlashMessagesComponent implements OnInit {
     }
 
     private _remove(message: FlashMessageInterface) {
-        this.messages = this.messages.filter(function(msg) {
-          return msg.text !== message.text;
-        });
+        this.messages = this.messages.filter((msg) => msg.id !== message.id);
     }
 }
