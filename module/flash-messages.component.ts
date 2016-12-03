@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FlashMessage } from './flash-message';
 import { FlashMessagesService } from './flash-messages.service';
 import { FlashMessageInterface } from './flash-message.interface';
@@ -24,7 +24,7 @@ export class FlashMessagesComponent implements OnInit {
     messages: FlashMessageInterface[] = [];
     _grayOut: boolean = false;
 
-    constructor(private _flashMessagesService: FlashMessagesService) {
+    constructor(private _flashMessagesService: FlashMessagesService, private _cdRef: ChangeDetectorRef) {
         this._flashMessagesService.show = this.show.bind(this);
         this._flashMessagesService.grayOut = this.grayOut.bind(this);
     }
@@ -42,9 +42,11 @@ export class FlashMessagesComponent implements OnInit {
         
         let message = new FlashMessage(text, defaults.cssClass);
         this.messages.push(message);
-        
+        this._cdRef.detectChanges();
+
         window.setTimeout(() => {
             this._remove(message);
+            this._cdRef.detectChanges();
         }, defaults.timeout);
     }
     
