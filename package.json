@@ -8,7 +8,7 @@
     "lite": "lite-server",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "prepublish": "tsc -p ./tsconfig.publish.json"
+    "prepublish": "ngc -p ./tsconfig.publish.json"
   },
   "keywords": [
     "angular2",
@@ -47,5 +47,9 @@
     "lite-server": "^2.2.2",
     "typescript": "^2.1.5",
     "bootstrap": "^3.3.6"
+  },
+  "dependencies": {
+    "@angular/compiler-cli": "^2.4.4",
+    "@angular/platform-server": "^2.4.4"
   }
 }
