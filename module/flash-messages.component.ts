@@ -38,7 +38,7 @@ export class FlashMessagesComponent implements OnInit {
           cssClass: ''
         };
         
-        for (var attrname in options) { defaults[attrname] = options[attrname]; }
+        for (var attrname in options) { (<any>defaults)[attrname] = (<any>options)[attrname]; }
         
         let message = new FlashMessage(text, defaults.cssClass);
         this.messages.push(message);
