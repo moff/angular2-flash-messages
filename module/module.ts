@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core';
 import { CommonModule }            from '@angular/common';
 import { FlashMessagesComponent }    from './flash-messages.component';
 import { FlashMessagesService }    from './flash-messages.service';
@@ -7,6 +7,13 @@ import { FlashMessagesService }    from './flash-messages.service';
     imports:      [ CommonModule ],
     declarations: [ FlashMessagesComponent ],
     exports:      [ FlashMessagesComponent ],
-    providers:    [ FlashMessagesService ]
+    providers:    [ ]
 })
-export class FlashMessagesModule {}
+export class FlashMessagesModule {
+    static forRoot(): ModuleWithProviders {
+        return {
+            ngModule: FlashMessagesModule,
+            providers: [FlashMessagesService]
+        }
+    }
+}
