@@ -22,6 +22,7 @@ export class FlashMessagesComponent implements OnInit {
 
     text: string;
     messages: FlashMessageInterface[] = [];
+    classes: string = '';
     _grayOut: boolean = false;
 
     constructor(private _flashMessagesService: FlashMessagesService, private _cdRef: ChangeDetectorRef) {
