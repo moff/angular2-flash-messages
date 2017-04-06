@@ -37,21 +37,27 @@ Otherwise you'll have to edit `systemjs.config.js` to set correct path, e.g.:
 ```
 // below you can see an example of map and packages sections in systemjs.config.js
 
-// ...
-// map tells the System loader where to look for things
-var map = {
-    // ...
-    'angular2-flash-messages':    'node_modules/angular2-flash-messages'
-    // ...
-};
-// packages tells the System loader how to load when no filename and/or no extension
-var packages = {
-    // ...
-    'angular2-flash-messages':    { main: 'index.js', defaultExtension: 'js' }
-    // ...
-};
-
-// ...
+System.config({
+    paths: {
+      // paths serve as alias
+      'npm:': 'node_modules/'
+    },
+    // map tells the System loader where to look for things
+    map: {
+        // other
+        'angular2-flash-messages':    'npm:angular2-flash-messages',
+        // other
+    },
+    // packages tells the System loader how to load when no filename and/or no extension
+    packages: {
+        // other
+        "angular2-flash-messages": {
+            main: 'index.js',
+            defaultExtension: 'js'
+        },
+        // other
+    }
+});
 ```
 
 ## Usage
@@ -84,7 +90,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class AboutComponent implements OnInit {
     constructor(private _flashMessagesService: FlashMessagesService) {}
-    
+
     ngOnInit() {
         // 1st parameter is a flash message text
         // 2nd parameter is optional. You can pass object with options.
@@ -143,7 +149,7 @@ Notice! You have to add some CSS to see gray out in action, e.g.:
     z-index: 9999;
 }
 
-.flash-message 
+.flash-message
 {
     z-index: 10000;
     position: relative;
