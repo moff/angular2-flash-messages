@@ -8,7 +8,8 @@ import { FlashMessageInterface } from './flash-message.interface';
   template: `
       <div id="flashMessages" class="flash-messages {{classes}}">
           <div id="grayOutDiv" *ngIf='_grayOut && messages.length'></div>
-          <div class="alert flash-message {{message.cssClass}}" [style.cursor]="message.closeOnClick?'pointer':'inherit'" *ngFor='let message of messages' (click)="alertClicked(message)">
+          <div class="alert flash-message {{message.cssClass}}" [ngClass]="{'alert-dismissible':message.showCloseBtn}" [style.cursor]="message.closeOnClick?'pointer':'inherit'" *ngFor='let message of messages' (click)="alertClicked(message)">
+              <button *ngIf="message.showCloseBtn" type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="close(message)"><span aria-hidden="true">&times;</span></button>
               <p>{{message.text}}</p>
           </div> 
       </div>
@@ -18,6 +19,7 @@ export class FlashMessagesComponent implements OnInit {
     private _defaults = {
         text: 'default message',
         closeOnClick: false,
+        showCloseBtn: false,
         cssClass: ''
     };
 
@@ -38,12 +40,13 @@ export class FlashMessagesComponent implements OnInit {
         let defaults = {
           timeout: 2500,
           closeOnClick: false,
+          showCloseBtn: false,
           cssClass: ''
         };
         
         for (var attrname in options) { (<any>defaults)[attrname] = (<any>options)[attrname]; }
         
-        let message = new FlashMessage(text, defaults.cssClass, defaults.closeOnClick);
+        let message = new FlashMessage(text, defaults.cssClass, defaults.closeOnClick, defaults.showCloseBtn);
 
         message.timer = window.setTimeout(() => {
             this._remove(message);
