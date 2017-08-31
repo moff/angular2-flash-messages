@@ -9,7 +9,7 @@ import { FlashMessageInterface } from './flash-message.interface';
       <div id="flashMessages" class="flash-messages {{classes}}">
           <div id="grayOutDiv" *ngIf='_grayOut && messages.length'></div>
           <div class="alert flash-message {{message.cssClass}}" *ngFor='let message of messages'>
-              <p>{{message.text}}</p>
+              {{message.text}}
           </div> 
       </div>
   `
