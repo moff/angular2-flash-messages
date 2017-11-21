@@ -30,3 +30,5 @@ Desktop.ini
 
 *.metadata.json
 /aot
+
+*.ngsummary.json
