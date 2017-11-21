@@ -8,8 +8,9 @@ import { FlashMessageInterface } from './flash-message.interface';
   template: `
       <div id="flashMessages" class="flash-messages {{classes}}">
           <div id="grayOutDiv" *ngIf='_grayOut && messages.length'></div>
-          <div class="alert flash-message {{message.cssClass}}" *ngFor='let message of messages'>
-              {{message.text}}
+          <div class="alert flash-message {{message.cssClass}}" [ngClass]="{'alert-dismissible':message.showCloseBtn}" [style.cursor]="message.closeOnClick?'pointer':'inherit'" *ngFor='let message of messages' (click)="alertClicked(message)">
+              <button *ngIf="message.showCloseBtn" type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="close(message)"><span aria-hidden="true">&times;</span></button>
+              <p>{{message.text}}</p>
           </div> 
       </div>
   `
@@ -17,6 +18,8 @@ import { FlashMessageInterface } from './flash-message.interface';
 export class FlashMessagesComponent implements OnInit {
     private _defaults = {
         text: 'default message',
+        closeOnClick: false,
+        showCloseBtn: false,
         cssClass: ''
     };
 
@@ -36,19 +39,34 @@ export class FlashMessagesComponent implements OnInit {
         
         let defaults = {
           timeout: 2500,
+          closeOnClick: false,
+          showCloseBtn: false,
           cssClass: ''
         };
         
         for (var attrname in options) { (<any>defaults)[attrname] = (<any>options)[attrname]; }
         
-        let message = new FlashMessage(text, defaults.cssClass);
-        this.messages.push(message);
-        this._cdRef.detectChanges();
+        let message = new FlashMessage(text, defaults.cssClass, defaults.closeOnClick, defaults.showCloseBtn);
 
-        window.setTimeout(() => {
+        message.timer = window.setTimeout(() => {
             this._remove(message);
             this._cdRef.detectChanges();
         }, defaults.timeout);
+
+        this.messages.push(message);
+        this._cdRef.detectChanges();
+    }
+
+    close(message:FlashMessage): void {
+            clearTimeout(message.timer);
+            this._remove(message);
+            this._cdRef.detectChanges();
+    }
+
+    alertClicked(message:FlashMessage): void {
+      if(message.closeOnClick){
+        this.close(message);
+      }
     }
     
     grayOut(value = false) {
