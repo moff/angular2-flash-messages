@@ -1,6 +1,6 @@
 {
   "name": "angular2-flash-messages",
-  "version": "1.0.10",
+  "version": "1.0.12",
   "description": "Angular 2 flash messages module",
   "files": [
     "module/*.d.ts",

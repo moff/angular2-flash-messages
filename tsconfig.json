@@ -8,6 +8,8 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": true,
+    "declaration": true,
+    "noEmit": true,
     "outDir": "./compiled",
     "lib": [
       "es2015",
@@ -20,6 +22,7 @@
   ],
   "angularCompilerOptions": {
     "genDir": "aot",
-    "skipMetadataEmit": false
+    "skipMetadataEmit": false,
+    "strictMetadataEmit": true
   }
 }

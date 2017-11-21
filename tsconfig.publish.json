@@ -9,6 +9,7 @@
     "removeComments": false,
     "noImplicitAny": true,
     "declaration": true,
+    "noEmit": true,
     "lib": [
       "es2015",
       "dom"
@@ -20,6 +21,7 @@
   ],
   "angularCompilerOptions": {
     "genDir": "aot",
-    "skipMetadataEmit": false
+    "skipMetadataEmit": false,
+    "strictMetadataEmit": true
   }
 }
