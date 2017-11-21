@@ -14,7 +14,7 @@ export class HomeComponent {
     
     go() {
         this._flashMessagesService.grayOut(true);
-        this._flashMessagesService.show('we were at home' + Math.random(), { cssClass: 'alert-success', timeout: 3000 });
+        this._flashMessagesService.show('we were at home' + Math.random(), { cssClass: 'alert-success', timeout: 3000, closeOnClick:true });
         this.router.navigate(['/about']);
     }
 }
