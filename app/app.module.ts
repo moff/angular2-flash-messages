@@ -15,7 +15,7 @@ import { FlashMessagesModule } from '../module/index';
         FormsModule,
         HttpModule,
         routing,
-        FlashMessagesModule
+        FlashMessagesModule.forRoot()
     ],
     providers: [
         appRoutingProviders

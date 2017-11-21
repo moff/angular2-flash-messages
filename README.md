@@ -23,12 +23,14 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
     imports: [
         // other imports
         // ...
-        FlashMessagesModule,
+        FlashMessagesModule.forRoot(),
         // ...
     ]
 })
 
 ```
+
+Notice! You have to import flash messages module via `FlashMessagesModule.forRoot()`
 
 That should be enough if you use Webpack to bundle JavaScript.
 

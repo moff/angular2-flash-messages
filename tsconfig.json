@@ -8,10 +8,18 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": true,
-    "outDir": "./compiled"
+    "outDir": "./compiled",
+    "lib": [
+      "es2015",
+      "dom"
+    ]
   },
   "files": [
     "./app/main.ts",
     "./module/module.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "genDir": "aot",
+    "skipMetadataEmit": false
+  }
 }
