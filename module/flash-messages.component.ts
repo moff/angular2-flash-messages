@@ -41,7 +41,8 @@ export class FlashMessagesComponent implements OnInit {
           timeout: 2500,
           closeOnClick: false,
           showCloseBtn: false,
-          cssClass: ''
+          cssClass: '',
+          text: "default message"
         };
         
         for (var attrname in options) { (<any>defaults)[attrname] = (<any>options)[attrname]; }

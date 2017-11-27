@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FlashMessagesService } from '../../module/index';
+import { FlashMessagesService } from '../../module/flash-messages.service';
 
 @Component({
     template: `

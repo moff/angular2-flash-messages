@@ -8,21 +8,12 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": true,
-    "declaration": true,
-    "noEmit": true,
+    "strictNullChecks": true,
     "outDir": "./compiled",
-    "lib": [
-      "es2015",
-      "dom"
-    ]
+    "lib": ["es2015","dom"]
   },
   "files": [
     "./app/main.ts",
-    "./module/module.ts"
-  ],
-  "angularCompilerOptions": {
-    "genDir": "aot",
-    "skipMetadataEmit": false,
-    "strictMetadataEmit": true
-  }
+    "./app/app.module.ts"
+  ]
 }

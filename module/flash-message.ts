@@ -10,10 +10,10 @@ export class FlashMessage implements FlashMessageInterface {
     showCloseBtn: boolean = false;
     timer: number;
     
-    constructor(text?: string, cssClass?: string, closeOnClick?:boolean, showCloseBtn?:boolean) {
-        this.text = text;
-        this.cssClass = cssClass;
-        this.closeOnClick = closeOnClick;
-        this.showCloseBtn = showCloseBtn;
+    constructor(text?: string, cssClass?: string, closeOnClick?: boolean, showCloseBtn?: boolean) {
+        if (text) this.text = text;
+        if (cssClass) this.cssClass = cssClass;
+        if (closeOnClick) this.closeOnClick = closeOnClick;
+        if (showCloseBtn) this.showCloseBtn = showCloseBtn;
     }
 }
