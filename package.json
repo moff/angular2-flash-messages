@@ -1,6 +1,6 @@
 {
   "name": "angular2-flash-messages",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Angular 2 flash messages module",
   "files": [
     "module/*.d.ts",
@@ -8,8 +8,8 @@
     "module/*.js.map",
     "module/*.json"
   ],
-  "main": "module/module.js",
-  "types": "module/module.d.ts",
+  "main": "module/index.js",
+  "types": "module/index.d.ts",
   "scripts": {
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",

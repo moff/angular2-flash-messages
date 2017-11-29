@@ -33,7 +33,7 @@
         defaultExtension: 'js'
       },
       module: {
-        main: './module.js',
+        main: './index.js',
         defaultExtension: 'js'
       },
       rxjs: {
