@@ -54,7 +54,7 @@ System.config({
     packages: {
         // other
         "angular2-flash-messages": {
-            main: 'index.js',
+            main: 'module/module.js',
             defaultExtension: 'js'
         },
         // other
