@@ -24,7 +24,8 @@
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       // other libraries
-      'rxjs':                       'npm:rxjs'
+      'rxjs':                       'npm:rxjs',
+      'rxjs-compat':                'npm:rxjs-compat'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -37,7 +38,16 @@
         defaultExtension: 'js'
       },
       rxjs: {
+        main: './index.js',
         defaultExtension: 'js'
+      },
+      "rxjs/operators" : {
+          "main": "index.js",
+          "defaultExtension": "js"
+      },
+      "rxjs-compat": {
+          main: './Rx.js',
+          defaultExtension: 'js'
       }
     }
   });
