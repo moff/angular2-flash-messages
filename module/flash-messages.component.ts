@@ -10,7 +10,7 @@ import { FlashMessageInterface } from './flash-message.interface';
           <div id="grayOutDiv" *ngIf='_grayOut && messages.length'></div>
           <div class="alert flash-message {{message.cssClass}}" [ngClass]="{'alert-dismissible':message.showCloseBtn}" [style.cursor]="message.closeOnClick?'pointer':'inherit'" *ngFor='let message of messages' (click)="alertClicked(message)">
               <button *ngIf="message.showCloseBtn" type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="close(message)"><span aria-hidden="true">&times;</span></button>
-              <p>{{message.text}}</p>
+              <div [innerHTML]="message.text"></div>
           </div> 
       </div>
   `
