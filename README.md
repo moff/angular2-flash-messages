@@ -1,3 +1,10 @@
+# !!!Contributors wanted!!!
+
+Since I don't have much time these days for maintaining the project, everyone who is interested in contributing (and skilled enough) is welcome!
+
+Contact me via email you can find in repo commits.
+
+
 # Angular 2 flash messages module
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](http://opensource.org/licenses/MIT)
